@@ -140,12 +140,12 @@ const Customizer = () => {
 
           {/* Go back button */}
           <motion.div
-            className="top-5 right-5 absolute z-10"
+            className="absolute  z-10  top-5 right-5 "
             {...fadeAnimation}
           >
             <CustomButton
               type="filled"
-              title="Go Back"
+              title="返回"
               handleClick={() => (state.intro = true)}
               customStyles="w-fit px-4 py-2.5 font-bold text-sm"
             />
@@ -165,13 +165,6 @@ const Customizer = () => {
                 handleClick={() => handleActiveFilterTab(tab.name)}
               />
             ))}
-            <div
-              key="download"
-              className={`tab-btn rounded-full glassmorhism`}
-              onClick={() => downloadCanvasToImage()}
-            >
-              <img src={download} alt={"download"} className={`"w-2/3 h-2/3`} />
-            </div>
           </motion.div>
         </>
       )}
