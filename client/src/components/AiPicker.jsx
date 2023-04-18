@@ -16,7 +16,7 @@ const AiPicker = ({ prompt, setPrompt, generatingImg }) => {
         {generatingImg ? (
           <CustomButton
             type="outline"
-            title="Ask ChatGPT"
+            title="去问 ChatGPT"
             customStyles="text-xs"
           />
         ) : (
