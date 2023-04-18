@@ -15,30 +15,32 @@ const Home = () => {
       {snap.intro && (
         <motion.section className="home" {...slideAnimation("left")}>
           {/* header */}
-          <motion.header>
-            <img
+          <motion.header {...slideAnimation("down")}>
+            <strong>tShirt</strong>
+            {/* <img
               src="./threejs.png"
               alt="logo"
               className="w-8 h-8 object-contain"
-            />
+            /> */}
           </motion.header>
           {/* content */}
           <motion.div className="home-content" {...headContainerAnimation}>
             <motion.div {...headTextAnimation}>
               <h1 className="head-text">
-                Let's <br className="xl:block hidden" />
-                DO IT.
+                你的风格，
+                <br className="xl:block hidden" />
+                你做主！
               </h1>
             </motion.div>
+
             <motion.div {...headTextAnimation} className="flex flex-col gap-5">
               <p className="max-w-md font-normal text-gray-600 text-base">
-                Create your unique and exclusive shirt with our brand-new 3D
-                customization tool. <strong>Unleash your imagination</strong>{" "}
-                and define your own style
+                让你的衣服脱颖而出！ <strong>让你的风格闪耀！</strong>
+                在这里，你可以自由选择颜色和图案，来自定义一件衣服，让你拥有独一无二的设计！
               </p>
               <CustomButton
                 type="filled"
-                title="Customize it"
+                title="盘它"
                 handleClick={() => (state.intro = false)}
                 customStyle="w-fit px-4 py-2.5 font-bold text-sm"
               />

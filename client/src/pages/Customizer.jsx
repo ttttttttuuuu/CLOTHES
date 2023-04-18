@@ -50,6 +50,27 @@ const Customizer = () => {
   };
   const handleSubmit = async (type) => {
     if (!prompt) return alert("Please enter a prompt");
+    try {
+      // call backend to generate on ai image
+      setGeneratingImg(true);
+      const response = await fetch(config.production, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          prompt,
+        }),
+      });
+      const data = await response.json();
+      handleDecals(type, `data:image/png;base65,${data.photo}`);
+    } catch (error) {
+      alert("An error occurred");
+      console.log(error);
+    } finally {
+      setGeneratingImg(false);
+      setActiveEditorTab("");
+    }
   };
 
   const handleDecals = (type, result) => {
@@ -144,6 +165,13 @@ const Customizer = () => {
                 handleClick={() => handleActiveFilterTab(tab.name)}
               />
             ))}
+            <div
+              key="download"
+              className={`tab-btn rounded-full glassmorhism`}
+              onClick={() => downloadCanvasToImage()}
+            >
+              <img src={download} alt={"download"} className={`"w-2/3 h-2/3`} />
+            </div>
           </motion.div>
         </>
       )}
